@@ -3,7 +3,7 @@ package main
 import "example"
 
 func main() {
-	/*example.Slicetest()
+	example.Slicetest()
 	example.Maptest()
 	example.Rangetest()
 	example.Functest1()
@@ -16,7 +16,7 @@ func main() {
 	example.Channelstest3()
 	example.Channelstest4()
 	example.Stringtest()
-	example.Jsontest()*/
+	example.Jsontest()
 	example.RateLimitingtest()
 	example.Mutextest()
 }
