@@ -19,4 +19,5 @@ func main() {
 	example.Jsontest()
 	example.RateLimitingtest()
 	example.Mutextest()
+	example.Pointerttest()
 }

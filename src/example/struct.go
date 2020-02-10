@@ -13,12 +13,12 @@ func newRect() *rect {
 	return &r
 }
 
-func (self *rect) area() int {
-	return self.width * self.height
+func (rp *rect) area() int {
+	return rp.width * rp.height
 }
 
-func (self rect) perimeter() int {
-	return 2 * (self.width + self.height)
+func (r rect) perimeter() int {
+	return 2 * (r.width + r.height)
 }
 
 func Structuretest() {

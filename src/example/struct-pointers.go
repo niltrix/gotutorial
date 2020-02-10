@@ -1,4 +1,4 @@
-package main
+package example
 
 import (
 	"fmt"
@@ -10,8 +10,7 @@ type Vertex struct {
 	Y int
 }
 
-func main() {
-	
+func Pointerttest() {
 	v := Vertex{1, 2}
 	p := &v
 	r := &p
