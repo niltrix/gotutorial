@@ -1,3 +1,10 @@
 {
-    "go.inferGopath": false
+    //"terminal.integrated.inheritEnv": true,
+    //"terminal.integrated.env.linux": {},
+    "[go]": {},
+    "go.inferGopath": true,
+    "go.gopath": "${workspaceFolder}",
+    "go.formatTool": "goimports",
+    "go.useLanguageServer": true,
+    "git.enableSmartCommit": true
 }
