@@ -1,4 +1,4 @@
-package example
+package main
 
 import "fmt"
 
@@ -21,7 +21,7 @@ func (r rect) perimeter() int {
 	return 2 * (r.width + r.height)
 }
 
-func Structuretest() {
+func main() {
 	r2 := newRect()
 	fmt.Printf("Rect %p %v \n", &r2, r2)
 	fmt.Println("Area: ", r2.area())
@@ -37,5 +37,4 @@ func Structuretest() {
 	fmt.Printf("Rect %p %v \n", &rp, rp)
 	fmt.Println("Area: ", rp.area())
 	fmt.Println("perimeter: ", rp.perimeter())
-
 }

@@ -1,4 +1,4 @@
-package example
+package main
 
 import (
 	"fmt"
@@ -41,7 +41,7 @@ func pong(pings <-chan string, pongs chan<- string) {
 	pongs <- msg
 }
 
-func Channelstest2() {
+func main() {
 
 	//basic
 	fmt.Println("Basic test : Channel sync  ...")

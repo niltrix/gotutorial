@@ -1,8 +1,8 @@
-package example
+package main
 
 import "fmt"
 
-func Channelstest4() {
+func main() {
 	jobs := make(chan int)
 	done := make(chan bool)
 

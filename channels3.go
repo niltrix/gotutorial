@@ -1,11 +1,11 @@
-package example
+package main
 
 import (
 	"fmt"
 	"time"
 )
 
-func Channelstest3() {
+func main() {
 	message := make(chan string)
 	signals := make(chan bool)
 
