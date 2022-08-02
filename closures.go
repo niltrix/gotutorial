@@ -12,8 +12,7 @@ func intSeq() func() int {
 	}
 }
 
-// Closeurestest is for
-func Closeurestest() {
+func main() {
 	nextInt := intSeq()
 	fmt.Println(nextInt())
 	fmt.Println(nextInt())
