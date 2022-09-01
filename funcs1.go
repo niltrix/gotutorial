@@ -54,7 +54,7 @@ func min(nums ...int) {
 	fmt.Println("Min : ", min)
 }
 
-func Functest1() {
+func main() {
 	res := plus(1, 2)
 	fmt.Println("1+2=", res)
 
