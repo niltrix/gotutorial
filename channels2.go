@@ -6,9 +6,16 @@ import (
 )
 
 func worker1(done chan bool) {
-	fmt.Println("working...")
-	time.Sleep(time.Second * 1)
-	fmt.Println("done")
+	fmt.Println("started... in worker1")
+	started := time.Now()
+	ticker := time.Tick(time.Second * 1)
+	for t := range ticker {
+		if t.Sub(started) > time.Second*5 {
+			break
+		}
+		fmt.Println("working... in worker1")
+	}
+	fmt.Println("done in worker1")
 
 	done <- true
 }
@@ -20,12 +27,13 @@ type job struct {
 
 func worker2(j chan job) {
 	for {
+		fmt.Println("waiting...in worker2")
 		myjob := <-j
 		if myjob.Name == "close" {
 			time.Sleep(time.Second * 1)
 			myjob.Result = "close"
 		} else {
-			fmt.Println("working...: ", myjob.Name)
+			fmt.Println("working...in worker2: ", myjob.Name)
 			myjob.Result = "done"
 		}
 		j <- myjob
@@ -47,8 +55,9 @@ func main() {
 	fmt.Println("Basic test : Channel sync  ...")
 	done := make(chan bool, 1)
 	go worker1(done)
+	time.Sleep(time.Second * 2)
 	fmt.Println("main : waiting ...")
-	<-done //blocking until receive data from channel
+	fmt.Printf("worker1 is done : %b\n", <-done) //blocking until receive data from channel
 
 	//advance
 	fmt.Println("Advance test : Channel sync  ...")
@@ -60,8 +69,9 @@ func main() {
 		fmt.Println("Job: ", result.Name, result.Result)
 	}
 	jobChannel <- job{Name: "close"}
-	result := <-jobChannel
-	fmt.Println("result: ", result)
+	fmt.Println("result: ", <-jobChannel)
+	jobChannel <- job{Name: "open"}
+	fmt.Println("result: ", <-jobChannel)
 
 	//Channel direction
 	pings := make(chan string, 1)
